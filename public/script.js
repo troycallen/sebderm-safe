@@ -11,19 +11,40 @@ async function checkIngredients() {
             body: JSON.stringify({ ingredients: ingredientList }),
         });
         const data = await response.json();
-        displayResults(data);
+        displayResults(data, ingredientList);
     } catch (error) {
         console.error('Error:', error);
-        displayResults([]);
+        displayResults([], ingredientList);
     }
 }
 
-function displayResults(problematicIngredients) {
-    const resultsDiv = document.getElementById('results');
-    if (problematicIngredients.length > 0) {
-        resultsDiv.innerHTML = "<h2>Potentially problematic ingredients:</h2>" + 
-            problematicIngredients.map(ing => `<p><strong>${ing.name}</strong>: ${ing.reason}</p>`).join('');
-    } else {
-        resultsDiv.innerHTML = "<p>No known problematic ingredients found.</p>";
+function displayResults(problematicIngredients, allIngredients) {
+    const safeIngredientsDiv = document.getElementById('safeIngredients');
+    const problematicIngredientsDiv = document.getElementById('problematicIngredients');
+    
+    safeIngredientsDiv.innerHTML = "<h3>Safe Ingredients:</h3>";
+    problematicIngredientsDiv.innerHTML = "<h3>Potentially Problematic Ingredients:</h3>";
+
+    allIngredients.forEach(ingredient => {
+        const problematic = problematicIngredients.find(item => ingredient.toLowerCase().includes(item.name.toLowerCase()));
+        const ingredientElement = document.createElement('div');
+        ingredientElement.className = 'ingredient';
+        ingredientElement.textContent = ingredient;
+
+        if (problematic) {
+            ingredientElement.classList.add('problematic');
+            ingredientElement.title = problematic.reason;
+            problematicIngredientsDiv.appendChild(ingredientElement);
+        } else {
+            ingredientElement.classList.add('safe');
+            safeIngredientsDiv.appendChild(ingredientElement);
+        }
+    });
+
+    if (safeIngredientsDiv.childElementCount === 1) {
+        safeIngredientsDiv.innerHTML += "<p>No safe ingredients found.</p>";
+    }
+    if (problematicIngredientsDiv.childElementCount === 1) {
+        problematicIngredientsDiv.innerHTML += "<p>No problematic ingredients found.</p>";
     }
 }

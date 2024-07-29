@@ -8,10 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>SebDerm-Safe Ingredient Checker</h1>
-        <textarea id="ingredientInput" placeholder="Enter ingredients, separated by commas"></textarea>
+        <h1>SebDerm-Safe</h1>
+        <h2>Check Ingredients for Seborrheic Dermatitis Safety</h2>
+        <p>Enter your product ingredients below, separated by commas:</p>
+        <textarea id="ingredientInput" placeholder="e.g., water, glycerin, olive oil"></textarea>
         <button onclick="checkIngredients()">Check Ingredients</button>
-        <div id="results"></div>
+        <div id="results">
+            <div id="safeIngredients"></div>
+            <div id="problematicIngredients"></div>
+        </div>
     </div>
     <script src="/script.js"></script>
 </body>

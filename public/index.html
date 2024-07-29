@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SebDerm-Safe</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>sebderm-safe</h1>
-        <h2>Make sure your products are safe for seb derm!</h2>
-        <h3>Ingredients:</h3>
-        <textarea id="ingredientInput" placeholder="e.g., water, glycerin, olive oil"></textarea>
-        <button onclick="checkIngredients()">Check Ingredients</button>
-        <div id="results">
-            <div id="safeIngredients"></div>
-            <div id="problematicIngredients"></div>
+        <div class="content-wrapper">
+            <main class="main-content">
+                <h2>Make sure your products are safe for seb derm!</h2>
+                <h3>Ingredients:</h3>
+                <textarea id="ingredientInput" placeholder="e.g., water, glycerin, olive oil"></textarea>
+                <button onclick="checkIngredients()">Check Ingredients</button>
+                <div id="results">
+                    <div id="safeIngredients"></div>
+                    <div id="problematicIngredients"></div>
+                </div>
+            </main>
+            <aside class="sidebar">
+                <h2>About sebderm-safe:</h2>
+                <nav>
+                    <ul>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                        <li><a href="#disclaimer">Disclaimer</a></li>
+                    </ul>
+                </nav>
+            </aside>
         </div>
     </div>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

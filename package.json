@@ -1,7 +1,7 @@
 {
   "name": "sebderm-safe",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Ingredient checker for seborrheic dermatitis",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

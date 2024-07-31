@@ -8,20 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>SebDerm-Safe</h1>
-        </header>
+        <h1>SebDerm-Safe</h1>
         <div class="content-wrapper">
-            <main class="main-content">
-                <h2>Check Your Product Safety</h2>
-                <p>Enter your product ingredients below to check if they're safe for seborrheic dermatitis.</p>
-                <textarea id="ingredientInput" placeholder="e.g., water, glycerin, olive oil"></textarea>
-                <button onclick="checkIngredients()">Check Ingredients</button>
-                <div id="results">
-                    <div id="safeIngredients"></div>
-                    <div id="problematicIngredients"></div>
-                </div>
-            </main>
             <aside class="sidebar">
                 <h2>Quick Links</h2>
                 <nav>
@@ -33,6 +21,27 @@
                     </ul>
                 </nav>
             </aside>
+            <main class="main-content">
+                <h2>Check Your Product Safety</h2>
+                <p>Enter your product ingredients below to check if they're safe for seborrheic dermatitis.</p>
+                <textarea id="ingredientInput" placeholder="e.g., water, glycerin, olive oil"></textarea>
+                <button onclick="checkIngredients()">Check Ingredients</button>
+                <div id="results" style="display: none;">
+                    <h3>Analysis</h3>
+                    <p id="summary"></p>
+                    <table id="ingredientsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Results will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
         </div>
     </div>
     <script src="script.js"></script>

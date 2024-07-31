@@ -27,58 +27,34 @@ async function checkIngredients() {
     }
 }
 
-// Function to display the results of ingredient checking
 function displayResults(problematicIngredients, allIngredients) {
-    // Get the results container
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    // Create divs for safe and problematic ingredients
-    const safeIngredientsDiv = document.createElement('div');
-    safeIngredientsDiv.id = 'safeIngredients';
-    const problematicIngredientsDiv = document.createElement('div');
-    problematicIngredientsDiv.id = 'problematicIngredients';
-
-    // Set the headers for each section
-    safeIngredientsDiv.innerHTML = "<h3>Safe Ingredients:</h3>";
-    problematicIngredientsDiv.innerHTML = "<h3>Potentially Problematic Ingredients:</h3>";
-
-    // Iterate through all ingredients
+    const resultsDiv = document.getElementById('results');
+    const summaryP = document.getElementById('summary');
+    const tableBody = document.querySelector('#ingredientsTable tbody');
+    
+    resultsDiv.style.display = 'block';
+    summaryP.textContent = `We found ${problematicIngredients.length} ingredient(s) that could be problematic.`;
+    
+    tableBody.innerHTML = '';
+    
     allIngredients.forEach(ingredient => {
-        // Check if the ingredient is in the problematic list
-        const problematic = problematicIngredients.find(item => ingredient.includes(item.name.toLowerCase()));
-        // Create a new div element for the ingredient
-        const ingredientElement = document.createElement('div');
-        ingredientElement.className = 'ingredient';
-        ingredientElement.textContent = ingredient;
-
+        const row = tableBody.insertRow();
+        const nameCell = row.insertCell(0);
+        const statusCell = row.insertCell(1);
+        
+        nameCell.textContent = ingredient;
+        const problematic = problematicIngredients.find(item => 
+            ingredient.toLowerCase().includes(item.name.toLowerCase())
+        );
+        
         if (problematic) {
-            // If problematic, add to the problematic ingredients list
-            ingredientElement.classList.add('problematic');
-            ingredientElement.title = problematic.reason;
-            problematicIngredientsDiv.appendChild(ingredientElement);
+            row.classList.add('problematic');
+            statusCell.textContent = 'Problematic';
         } else {
-            // If safe, add to the safe ingredients list
-            ingredientElement.classList.add('safe');
-            safeIngredientsDiv.appendChild(ingredientElement);
+            row.classList.add('safe');
+            statusCell.textContent = 'Safe';
         }
     });
-
-    // Display a message if no safe ingredients are found
-    if (safeIngredientsDiv.childElementCount === 1) {
-        safeIngredientsDiv.innerHTML += "<p>No safe ingredients found.</p>";
-    }
-    // Display a message if no problematic ingredients are found
-    if (problematicIngredientsDiv.childElementCount === 1) {
-        problematicIngredientsDiv.innerHTML += "<p>No problematic ingredients found.</p>";
-    }
-
-    // Append the result divs to the results container
-    resultsContainer.appendChild(safeIngredientsDiv);
-    resultsContainer.appendChild(problematicIngredientsDiv);
-
-    // Make the results visible
-    resultsContainer.style.display = 'block';
 }
 
 // Function to handle image upload and processing

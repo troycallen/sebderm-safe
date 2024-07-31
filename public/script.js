@@ -41,6 +41,7 @@ function displayResults(problematicIngredients, allIngredients) {
         const row = tableBody.insertRow();
         const nameCell = row.insertCell(0);
         const statusCell = row.insertCell(1);
+        const reasonCell = row.insertCell(2);
         
         nameCell.textContent = ingredient;
         const problematic = problematicIngredients.find(item => 
@@ -50,9 +51,11 @@ function displayResults(problematicIngredients, allIngredients) {
         if (problematic) {
             row.classList.add('problematic');
             statusCell.textContent = 'Problematic';
+            reasonCell.textContent = problematic.reason;
         } else {
             row.classList.add('safe');
             statusCell.textContent = 'Safe';
+            reasonCell.textContent = 'No known issues for seborrheic dermatitis';
         }
     });
 }

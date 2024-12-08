@@ -69,7 +69,7 @@ const problematicIngredients = [
     { name: 'ceramide 3', reason: 'Can potentially feed Malassezia yeast' },
     { name: 'cholesteryl oleate', reason: 'Can be used by Malassezia yeast' },
     { name: 'ozokerite', reason: 'Can create an occlusive barrier, promoting yeast growth' },
-    { name: 'paraffin', reason: 'Can create an occlusive barrier, trapping moisture and heat' }
+    { name: 'paraffin', reason: 'Can create an occlusive barrier, trapping moisture and heat' },
     { name: 'benzyl alcohol', reason: 'Can be irritating and potentially feed Malassezia yeast' },
     { name: 'rosehip oil', reason: 'Contains fatty acids that can feed Malassezia yeast' },
     { name: 'tamanu oil', reason: 'Contains fatty acids that can feed Malassezia yeast' },
@@ -89,7 +89,7 @@ const problematicIngredients = [
     { name: 'PEG-7 glyceryl cocoate', reason: 'Can feed Malassezia yeast' },
     { name: 'decyl oleate', reason: 'Can feed Malassezia yeast' },
     { name: 'isodecyl oleate', reason: 'Can feed Malassezia yeast' },
-    { name: 'glyceryl oleate', reason: 'Can feed Malassezia yeast' }
+    { name: 'glyceryl oleate', reason: 'Can feed Malassezia yeast' },
     // Ingredients focused on irritation
     { name: 'phenoxyethanol', reason: 'A preservative that can irritate sensitive skin' },
     { name: 'triclosan', reason: 'Can disrupt the skin microbiome and worsen symptoms' },

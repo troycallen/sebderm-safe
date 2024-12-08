@@ -11,8 +11,10 @@
   "license": "ISC",
   "description": "Ingredient checker for seborrheic dermatitis",
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.19.2",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.4",
     "mysql2": "^3.11.0"
   }
 }

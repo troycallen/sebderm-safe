@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Ingredient = require('../models/ingredient');
-const problematicIngredients = require('../data/ingredients');
+const problematicIngredients = require('../models/ingredients');
 require('dotenv').config();
 
 async function seedDatabase() {
